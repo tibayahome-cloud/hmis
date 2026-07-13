@@ -5,6 +5,9 @@ import os
 from flask import Flask, render_template
 from dotenv import load_dotenv
 
+from routes.patients import patients_bp
+from routes.consultations import consultations_bp
+from routes.ai_help import ai_help_bp
 
 # Load environment variables
 load_dotenv()
@@ -30,6 +33,11 @@ app.jinja_env.globals['now'] = datetime.now
 @app.route('/')
 def index():    
     return render_template('index.html')
+
+# Register blueprints from other modules
+app.register_blueprint(patients_bp)
+app.register_blueprint(consultations_bp)
+app.register_blueprint(ai_help_bp)
 
 
 if __name__ == '__main__':    
