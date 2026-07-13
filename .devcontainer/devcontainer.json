@@ -16,5 +16,5 @@
         }
     },
     "dockerComposeFile": ["../docker-compose.yml"],
-    "forwardPorts": [8000, 5432]
+    "forwardPorts": [5000, 5432]
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.html' %}
+
+<body>
+    <div id="app">
+        {% include 'sidebar.html' %}
+        <div id="main" class='layout-navbar'>
+            {% include 'navbar.html' %}
+            <div id="main-content">
+
+                {% block page_header %}
+                {% endblock %}
+
+                <section class="section">
+                    {% block content %}
+                    {% endblock %}
+                </section>
+
+                {% include 'footer.html' %}
+
+            </div>
+
+
+        </div>
+    </div>
+    {% include 'scripts.html' %}
+</body>
+
+</html>

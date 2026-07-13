@@ -13,10 +13,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: backend-api
     command: sleep infinity
     ports:
-      - "127.0.0.1:8000:8000"
+      - "5000:5000"
     volumes:
       - .:/workspace:cached
       - media-volume:/app/media
