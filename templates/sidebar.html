@@ -20,7 +20,7 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-title">Menu</li>
+                <li class="sidebar-title text-bold text-primary"><sub><b>MAIN MENU</b></sub></li>
 
                 <li class="sidebar-item {{ 'active' if request.endpoint == 'index' else '' }}">
                     <a href="{{ url_for('index') }}" class='sidebar-link'>
@@ -29,7 +29,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-title text-bold text-primary"><sub>PATIENT MANAGEMENT</sub></li>
+                <li class="sidebar-title text-primary"><sub><b>PATIENT MANAGEMENT</b></sub></li>
 
                 <li
                     class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
@@ -71,23 +71,23 @@
                     class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-tv"></i>
-                        <span>Consultations</span>
+                        <span>Visits</span>
                     </a>
                     <ul
-                        class="submenu {{ 'active' if request.endpoint in ['consultations.queue', 'consultations.list', 'consultations.new'] else '' }}">
-                        <li class="submenu-item {{ 'active' if request.endpoint == 'consultations.queue' else '' }}">
-                            <a href="{{ url_for('consultations.queue') }}">
+                        class="submenu {{ 'active' if request.endpoint in ['visits.queue', 'visits.list', 'visits.new'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'visits.queue' else '' }}">
+                            <a href="{{ url_for('visits.queue') }}">
                                 <i class="bi bi-clock"></i> Queue
                             </a>
                         </li>
-                        <li class="submenu-item {{ 'active' if request.endpoint == 'consultations.list' else '' }}">
-                            <a href="{{ url_for('consultations.list') }}">
-                                <i class="bi bi-list-check"></i> All Consultations
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'visits.list' else '' }}">
+                            <a href="{{ url_for('visits.list') }}">
+                                <i class="bi bi-list-check"></i> All Visits
                             </a>
                         </li>
-                        <li class="submenu-item {{ 'active' if request.endpoint == 'consultations.new' else '' }}">
-                            <a href="{{ url_for('consultations.new') }}">
-                                <i class="bi bi-person-plus"></i> New Consultation
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'visits.new' else '' }}">
+                            <a href="{{ url_for('visits.new') }}">
+                                <i class="bi bi-person-plus"></i> New Visit
                             </a>
                         </li>
                     </ul>
@@ -114,6 +114,291 @@
                         <li class="submenu-item {{ 'active' if request.endpoint == 'ai_help.treatment_plan' else '' }}">
                             <a href="{{ url_for('ai_help.treatment_plan') }}">
                                 <i class="bi bi-shield-plus"></i> AI Treatment Plan
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="sidebar-title text-primary"><sub><b>CLINICAL OPERATIONS</b></sub></li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Departments</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list"></i> List Departments
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-plus"></i> Add Department
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Doctors Management</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list-check"></i> List Doctors
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New Doctor
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.sick_leave' else '' }}">
+                            <a href="{{ url_for('patients.sick_leave') }}">
+                                <i class="bi bi-clock"></i> Doctor Queue
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.triage' else '' }}">
+                            <a href="{{ url_for('patients.triage') }}">
+                                <i class="bi bi-clipboard"></i> Treatment History
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-calendar"></i> Schedule
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-calendar"></i> Leave Days
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-cash"></i> Doctors Commission
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-clipboard"></i> Doctor Visits
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Consultations</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> Appointments Dashboard
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New Patient
+                            </a>
+                        </li>x
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.triage' else '' }}">
+                            <a href="{{ url_for('patients.triage') }}">
+                                <i class="bi bi-heart"></i> Triage
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.sick_leave' else '' }}">
+                            <a href="{{ url_for('patients.sick_leave') }}">
+                                <i class="bi bi-file-earmark-medical"></i> Sick Leave
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-person-lines-fill"></i> Death Register
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="sidebar-item {{ 'active' if request.endpoint == 'index' else '' }}">
+                    <a href="{{ url_for('index') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Prescription</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Procedure</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.triage' else '' }}">
+                            <a href="{{ url_for('patients.triage') }}">
+                                <i class="bi bi-heart"></i> Procedure Dashboard
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.sick_leave' else '' }}">
+                            <a href="{{ url_for('patients.sick_leave') }}">
+                                <i class="bi bi-file-earmark-medical"></i> Procedure Queue
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list-check"></i> All Procedures
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New Procedure
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>VCT Services</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list-check"></i> VCT Dashboard
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New VCT Test
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Family Planning</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New Patient
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list-check"></i> List Patients
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.triage' else '' }}">
+                            <a href="{{ url_for('patients.triage') }}">
+                                <i class="bi bi-heart"></i> Triage
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.sick_leave' else '' }}">
+                            <a href="{{ url_for('patients.sick_leave') }}">
+                                <i class="bi bi-file-earmark-medical"></i> Sick Leave
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-person-lines-fill"></i> Death Register
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Maternity</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New Patient
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list-check"></i> List Patients
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.triage' else '' }}">
+                            <a href="{{ url_for('patients.triage') }}">
+                                <i class="bi bi-heart"></i> Triage
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.sick_leave' else '' }}">
+                            <a href="{{ url_for('patients.sick_leave') }}">
+                                <i class="bi bi-file-earmark-medical"></i> Sick Leave
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-person-lines-fill"></i> Death Register
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub {{ 'active' if request.endpoint in ['patients.new_patient', 'patients.patient_list', 'patients.triage', 'patients.all_cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people"></i>
+                        <span>Theatre Management</span>
+                    </a>
+                    <ul
+                        class="submenu {{ 'active' if request.endpoint in ['patients.new', 'patients.list', 'patients.triage', 'patients.cases', 'patients.sick_leave', 'patients.death_register'] else '' }}">
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.new' else '' }}">
+                            <a href="{{ url_for('patients.new') }}">
+                                <i class="bi bi-person-plus"></i> New Patient
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.list' else '' }}">
+                            <a href="{{ url_for('patients.list') }}">
+                                <i class="bi bi-list-check"></i> List Patients
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.triage' else '' }}">
+                            <a href="{{ url_for('patients.triage') }}">
+                                <i class="bi bi-heart"></i> Triage
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ 'active' if request.endpoint == 'patients.sick_leave' else '' }}">
+                            <a href="{{ url_for('patients.sick_leave') }}">
+                                <i class="bi bi-file-earmark-medical"></i> Sick Leave
+                            </a>
+                        </li>
+                        <li
+                            class="submenu-item {{ 'active' if request.endpoint == 'patients.death_register' else '' }}">
+                            <a href="{{ url_for('patients.death_register') }}">
+                                <i class="bi bi-person-lines-fill"></i> Death Register
                             </a>
                         </li>
                     </ul>

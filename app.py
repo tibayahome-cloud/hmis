@@ -6,7 +6,7 @@ from flask import Flask, render_template
 from dotenv import load_dotenv
 
 from routes.patients import patients_bp
-from routes.consultations import consultations_bp
+from routes.visits import visits_bp
 from routes.ai_help import ai_help_bp
 
 # Load environment variables
@@ -36,7 +36,7 @@ def index():
 
 # Register blueprints from other modules
 app.register_blueprint(patients_bp)
-app.register_blueprint(consultations_bp)
+app.register_blueprint(visits_bp)
 app.register_blueprint(ai_help_bp)
 
 
