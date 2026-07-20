@@ -17,7 +17,4 @@ COPY . .
 # Set the timezone to Africa/Nairobi
 RUN ln -sf /usr/share/zoneinfo/Africa/Nairobi /etc/localtime
 
-EXPOSE 5000
-
-# Use the startup script as entrypoint to run both services
-# ENTRYPOINT ["python", "app.py"]
+EXPOSE 5000 5432

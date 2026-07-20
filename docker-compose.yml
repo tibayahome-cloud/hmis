@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:15
+    image: postgres:16
     environment:
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
@@ -14,7 +14,7 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /workspace
-    command: flask --app app.py run --host=0.0.0.0 --port=5000 --debug
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4 --reload
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@db:5432/postgres}
       SECRET_KEY: ${SECRET_KEY:-change-me}

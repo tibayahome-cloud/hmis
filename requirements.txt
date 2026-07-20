@@ -1,6 +1,9 @@
-dotenv
-flask
-flask-cors
-flask-wtf
-psycopg2-binary
+asyncpg 
+fastapi 
+jinja2
+python-multipart
+pyjwt[crypto]
+python-dotenv
 requests
+sqlmodel 
+uvicorn 
