@@ -13,7 +13,7 @@ from routes.ai_help import ai_help_bp
 load_dotenv()
 
 DEBUG_MODE = os.getenv('IS_DEBUG', 'False') in ['True', '1', 't']
-PORT = int(os.getenv('PORT', '5000'))
+PORT = int(os.getenv('WEB_HOST_PORT', '5000'))
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
