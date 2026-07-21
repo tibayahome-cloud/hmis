@@ -1,7 +1,7 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.db.base import Base, TimestampMixin, UUIDPKMixin
+from db.base import Base, TimestampMixin, UUIDPKMixin
 
 
 class Role(UUIDPKMixin, TimestampMixin, Base):

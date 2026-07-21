@@ -2,11 +2,11 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.core.exceptions import ConflictError, ForbiddenError, NotFoundError
-from app.core.security import hash_password
-from app.models.role import Role
-from app.models.staff import Staff
-from app.schemas.auth import StaffCreate
+from core.exceptions import ConflictError, ForbiddenError, NotFoundError
+from core.security import hash_password
+from models.role import Role
+from models.staff import Staff
+from schemas.auth import StaffCreate
 
 # Roles that can only be assigned via the hospital-registration flow, never via
 # POST /staff — an admin cannot promote someone else to admin/super_admin here.

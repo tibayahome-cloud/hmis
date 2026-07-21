@@ -3,10 +3,10 @@ import uuid
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.rbac import get_current_staff, require_roles
-from app.db.session import get_db
-from app.schemas.auth import RoleRead, StaffCreate, StaffRead
-from app.services import staff_service
+from core.rbac import get_current_staff, require_roles
+from db.session import get_db
+from schemas.auth import RoleRead, StaffCreate, StaffRead
+from services import staff_service
 
 router = APIRouter(prefix="/staff", tags=["staff"])
 

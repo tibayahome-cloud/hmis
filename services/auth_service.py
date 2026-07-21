@@ -2,8 +2,8 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.core.exceptions import UnauthorizedError
-from app.core.security import (
+from core.exceptions import UnauthorizedError
+from core.security import (
     InvalidTokenError,
     TokenType,
     create_access_token,
@@ -11,8 +11,8 @@ from app.core.security import (
     decode_token,
     verify_password,
 )
-from app.models.staff import Staff
-from app.schemas.auth import AccessToken, TokenPair
+from models.staff import Staff
+from schemas.auth import AccessToken, TokenPair
 
 
 async def authenticate_staff(db: AsyncSession, email: str, password: str) -> Staff:

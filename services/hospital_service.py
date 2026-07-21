@@ -2,12 +2,12 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.core.exceptions import ConflictError, NotFoundError
-from app.core.security import hash_password
-from app.models.hospital import Hospital
-from app.models.role import Role
-from app.models.staff import Staff
-from app.schemas.hospital import HospitalCreate
+from core.exceptions import ConflictError, NotFoundError
+from core.security import hash_password
+from models.hospital import Hospital
+from models.role import Role
+from models.staff import Staff
+from schemas.hospital import HospitalCreate
 
 
 async def create_hospital_with_admin(db: AsyncSession, payload: HospitalCreate) -> tuple[Hospital, Staff]:

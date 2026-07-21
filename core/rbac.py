@@ -3,11 +3,11 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.config import settings
-from app.core.exceptions import ForbiddenError, UnauthorizedError
-from app.core.security import InvalidTokenError, TokenType, decode_token
-from app.db.session import get_db
-from app.models.staff import Staff
+from core.config import settings
+from core.exceptions import ForbiddenError, UnauthorizedError
+from core.security import InvalidTokenError, TokenType, decode_token
+from db.session import get_db
+from models.staff import Staff
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{settings.API_V1_PREFIX}/auth/login")
 

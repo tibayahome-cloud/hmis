@@ -3,10 +3,10 @@ import uuid
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.rbac import require_roles
-from app.db.session import get_db
-from app.schemas.hospital import HospitalCreate, HospitalRead, HospitalWithAdminRead
-from app.services import hospital_service
+from core.rbac import require_roles
+from db.session import get_db
+from schemas.hospital import HospitalCreate, HospitalRead, HospitalWithAdminRead
+from services import hospital_service
 
 router = APIRouter(
     prefix="/hospitals", tags=["hospitals"], dependencies=[Depends(require_roles("super_admin"))]

@@ -5,8 +5,8 @@ from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from app.core.config import settings
-from app.models import Base  # noqa: F401 — imports all models so autogenerate sees them
+from core.config import settings
+from models import Base  # noqa: F401 — imports all models so autogenerate sees them
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)

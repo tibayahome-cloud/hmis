@@ -2,7 +2,7 @@ import uuid
 
 import pytest
 
-from app.core.security import (
+from core.security import (
     InvalidTokenError,
     TokenType,
     create_access_token,

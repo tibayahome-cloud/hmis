@@ -11,10 +11,10 @@ import asyncio
 
 from sqlalchemy import select
 
-from app.core.security import hash_password
-from app.db.session import AsyncSessionLocal
-from app.models.role import Role
-from app.models.staff import Staff
+from core.security import hash_password
+from db.session import AsyncSessionLocal
+from models.role import Role
+from models.staff import Staff
 
 
 async def seed_admin(full_name: str, email: str, password: str) -> None:

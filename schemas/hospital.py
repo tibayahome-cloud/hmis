@@ -2,7 +2,7 @@ import uuid
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
-from app.schemas.auth import StaffRead
+from schemas.auth import StaffRead
 
 
 class HospitalCreate(BaseModel):

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.v1 import auth, hospitals, staff
+from api.v1 import auth, hospitals, staff
 
 api_router = APIRouter()
 
