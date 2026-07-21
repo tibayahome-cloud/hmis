@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     ENV: str = "development"
     DEBUG: bool = True
     API_V1_PREFIX: str = "/api/v1"
+    BACKEND_PORT: int = 8000
 
     # Database
     DATABASE_URL: str = "postgresql+asyncpg://hmis:hmis@localhost:5432/hmis"

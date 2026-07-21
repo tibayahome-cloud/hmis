@@ -25,4 +25,4 @@ EXPOSE 8000
 
 # python -m scripts.seed_super_admin --name "Admin" --email admin@hmis.com --password "Admin@123"
 
-# uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+# uvicorn main:app --host 0.0.0.0 --port 8000 --reload
