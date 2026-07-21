@@ -26,7 +26,7 @@ services:
       dockerfile: Dockerfile
     command: uvicorn app.main:app --host 0.0.0.0 --port ${BACKEND_PORT:-8000} --workers 4 
     env_file:
-      - .env.dev.env
+      - .env
     ports:
       - "${BACKEND_PORT:-8000}:8000"
     volumes:
