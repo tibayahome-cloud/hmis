@@ -1,6 +1,6 @@
 {
     "name": "HMIS",
-    "runServices": ["backend", "db", "redis"],
+    "runServices": ["backend"],
     "service": "backend",
     "workspaceFolder": "/workspace",
     "customizations": {
@@ -16,5 +16,5 @@
         }
     },
     "dockerComposeFile": ["../docker-compose.yml"],
-    "forwardPorts": [5000, 5432]
+    "forwardPorts": [5000]
 }

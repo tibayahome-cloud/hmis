@@ -21,4 +21,8 @@ EXPOSE 8000
 
 
 
-# uvicorn app.main:app --host 0.0.0.0 --reload
+# alembic upgrade head
+
+# python -m scripts.seed_super_admin --name "Admin" --email admin@hmis.com --password "Admin@123"
+
+# uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload

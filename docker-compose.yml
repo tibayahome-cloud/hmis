@@ -1,25 +1,4 @@
 services:
-  db:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_DB: ${DATABASE_NAME:-hmis}
-      POSTGRES_USER: ${DATABASE_USER:-hmis}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-hmis}
-    ports:
-      - "${DATABASE_PORT:-5432}:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U hmis"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "${REDIS_PORT:-6379}:6379"
-
   backend:
     build:
       context: .
@@ -28,9 +7,9 @@ services:
     env_file:
       - .env
     environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://hmis:hmis@db:5432/hmis}
-      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
-      SECRET_KEY: ${SECRET_KEY:-change-me}
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      SECRET_KEY: ${SECRET_KEY}
       BACKEND_PORT: ${BACKEND_PORT:-8000}
       IS_DEBUG: ${IS_DEBUG:-True}
     ports:
@@ -38,12 +17,6 @@ services:
     volumes:
       - .:/workspace:cached
       - media-volume:/app/media
-    depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_started
 
 volumes:
-  pgdata:
   media-volume:
