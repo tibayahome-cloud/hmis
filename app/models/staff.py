@@ -20,3 +20,9 @@ class Staff(UUIDPKMixin, TimestampMixin, Base):
         UUID(as_uuid=True), ForeignKey("roles.id"), nullable=False
     )
     role: Mapped["Role"] = relationship(back_populates="staff")
+
+    # Nullable: only super_admin has no hospital. Every other role must have one.
+    hospital_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("hospitals.id"), nullable=True
+    )
+    hospital: Mapped["Hospital | None"] = relationship(back_populates="staff")

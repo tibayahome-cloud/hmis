@@ -30,6 +30,7 @@ class StaffRead(BaseModel):
     phone: str | None
     is_active: bool
     role: RoleRead
+    hospital_id: uuid.UUID | None
 
 
 # ---- Auth ----
