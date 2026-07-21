@@ -2,10 +2,10 @@ alembic
 asyncpg
 bcrypt
 celery
-email-validator
 fastapi
 passlib[bcrypt]
 pydantic
+pydantic[email]
 pydantic-settings
 python-jose[cryptography]
 python-multipart
