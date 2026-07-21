@@ -1,7 +1,7 @@
 {
     "name": "HMIS",
-    "runServices": ["web", "db"],
-    "service": "web",
+    "runServices": ["backend", "db", "redis"],
+    "service": "backend",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
