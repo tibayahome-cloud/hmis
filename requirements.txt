@@ -1,6 +1,6 @@
 alembic
 asyncpg
-bcrypt
+bcrypt==4.0.1
 celery
 fastapi
 passlib[bcrypt]
