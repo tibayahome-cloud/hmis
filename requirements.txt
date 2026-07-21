@@ -2,23 +2,16 @@ alembic
 asyncpg
 bcrypt
 celery
-cryptography
 email-validator
 fastapi
-httptools
-passlib
+passlib[bcrypt]
 pydantic
 pydantic-settings
-python-dotenv
-python-jose
+python-jose[cryptography]
 python-multipart
-PyYAML
 redis
 sqlalchemy
-uvicorn
-uvloop
-watchfiles
-websockets
+uvicorn[standard]
 
 #test
 httpx
